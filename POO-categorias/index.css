@@ -1,0 +1,16 @@
+table{
+	margin:0 auto;
+	
+}
+a{
+	text-decoration: none;
+	
+}
+a:link, a:visited{
+	color: black;
+}
+table,td,tr{
+	border:2px solid blue;
+	border-collapse:collapse;
+	background-color:pink;
+}
