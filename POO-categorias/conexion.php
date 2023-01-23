@@ -7,7 +7,7 @@
 
         
         public function conexion(){
-            $conexion = mysqli_connect($this->server, $this->usu, $this->contra, $this->bbdd);
+            $conexion = new mysqli($this->server, $this->usu, $this->contra, $this->bbdd);
             
             return $conexion;
         }
