@@ -1,6 +1,6 @@
 <?php
-    require_once "conexion.php";
-    require_once "modelo.php";
+    require_once "../configuracion/config.php";
+    require_once "../modelo/modelo.php";
 
     $id=$_GET['id'];
 

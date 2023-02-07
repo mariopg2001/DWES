@@ -1,18 +1,19 @@
 <?php
-    require_once "conexion.php";
-    require_once "modelo.php";
+    require_once "../configuracion/config.php";
+    require_once "../modelo/modelo.php";
 ?>
 <html>
 	<head>
 		<meta charset=utf-8 />
-        <link rel="stylesheet" type="text/css" href="index.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/style.css"/>
         <title>Consultat Categorias</title>
 	</head>
 	<body>
+        <button><a href="consulta_retos.php">Ver los retos</a></button>
         <button><a href="formularioalta.php">Añadir categoria</a></button>
        
             <?php	
-                    $Modelo = new Modelo();
+                    $modelo = new Modelo();
                     
                    	
                     // if($result ->nums_rows==0){
@@ -24,15 +25,14 @@
                             <td>Borrar</td>
                             <td>modificar</td>
                         </tr>';
-                        $sql = "SELECT * FROM categorias;";
-                                            $result = $Modelo->mostrar($sql);
+                        $categ='categorias';
+                        $consulta= $modelo->consulta($categ);
 
-                        foreach($result as $fila){
-
+                        foreach($consulta as $fila){
                             echo '<tr>	 
                                     <td>'.$fila['nombre'].'</td>
-                                    <td><a href="borrar.php?id='.$fila["id"].'"><img src="imagen/basura.jpg"></a></td>
-                                    <td><a href="form_mod.php?id='.$fila["id"].'"><img src="imagen/lapiz.png"></a></td>
+                                    <td><a href="borrar.php?id='.$fila["idcategoria"].'"><img src="../imagen/basura.jpg"></a></td>
+                                    <td><a href="form_mod.php?id='.$fila["idcategoria"].'"><img src="../imagen/lapiz.png"></a></td>
                                 </tr>';
                         }
 
