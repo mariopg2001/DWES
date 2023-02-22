@@ -6,9 +6,9 @@
     </head>
     <body>
         <h3 >Alta de categorías</h3>
-        <form action="alta.php" method="post" id="formulario">
+        <form action="AltaCategoria.php" method="post" id="formulario">
             <label>Nombre de la categoría: </label>
-            <input name="cat" type="text" />
+            <input name="nombrecategoria" type="text" />
             <input type="submit" name="enviar" value="enviar"/>
         </form>
         <button><a href="consulta.php">Cancelar</a></button>
