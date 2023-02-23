@@ -37,6 +37,6 @@
                     header('location: consulta.php ');
                     exit;
                 }
-            }          
         }
-    
+              
+    }

@@ -7,7 +7,8 @@
 	<body>
         <button><a href="consulta_retos.php">Ver los retos</a></button>
         <button><a href="formularioalta.php">Añadir categoria</a></button>
-       
+        <button><a href="alta_retos.php">Añadir retos</a></button>
+        
         <?php
             if(isset($_GET['nombre']) && isset($_GET['id'])){
                 echo '
@@ -37,7 +38,7 @@
                     }
                 }
                 else{
-                    echo '<tr><tdcolspan="2">No hay valores.</td></tr>';
+                    echo '<tr><td>No hay Categorias.</td></tr>';
                 }
             
             }
