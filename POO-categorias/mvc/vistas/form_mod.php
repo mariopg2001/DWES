@@ -10,11 +10,11 @@
 		require_once('../controlador/controladorcategoria.php');
 		if(empty($_POST)){
 			$controlador=new ControladorCategoria();
-			$datos=$controlador->consultar();
+			$result=$controlador->consultar();
 			if(isset($_GET['id'])){
-				while($linea = $datos ->fetch_assoc()){
-					if($linea['idcategoria']==$_GET['id']){
-						$categoria=$linea['nombre'];
+				while($fila = $result ->fetch_assoc()){
+					if($fila['idcategoria']==$_GET['id']){
+						$categoria=$fila['nombre'];
 					}
 				}
 			}

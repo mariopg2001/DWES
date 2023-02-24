@@ -10,6 +10,14 @@
 		<button><a href="consulta.php">Consulta las categorias</a></button>
 
         <?php
+		 if(isset($_GET['nombre']) && isset($_GET['id'])){
+			echo '
+				<h2>AVISO</h2>
+				<h4>¿Seguro que quieres eliminar el reto: '.$_GET['nombre'].' ?</h4>
+				<button><a href="borrarReto.php?id='.$_GET['id'].'">Sí</button>
+				<button><a href="consulta_retos.php">No</button>
+			';
+		}else{
 		if(isset($_GET['idReto'])){
 			$id=$_GET['idReto'];
 			require_once('../controlador/controladorreto.php');
@@ -33,6 +41,8 @@
 					<td>Categoría</td>
 					<td>Publicado</td>
 					<td>Seccion</td>
+					<td>Modificar</td>
+					<td>Eliminar</td>
 
 				</tr>
 			<?php
@@ -49,12 +59,16 @@
 					echo '<tr>
 					<td>'.$fila['Nombre'].'</a></td>';
                     $categoria = $cat ->fetch_assoc();
-				    echo '<td>'.$categoria['Nombre'].'</td>';
-                    echo '<td>'.$publicados.'</td>
-							<td>'.$fila['seccion'].'</td>';
+				    echo '
+							<td>'.$categoria['Nombre'].'</td>
+                    		<td>'.$publicados.'</td>
+							<td>'.$fila['seccion'].'</td>
+							<td><a href="formmod_reto.php?id='.$fila["idReto"].'"><img src="../../imagen/lapiz.png"></a></td>
+                            <td><a href="consulta_retos.php?nombre='.$fila['Nombre'].'&id='.$fila['idReto'].'"><img src="../../imagen/basura.jpg"></a></td>';
 					
 				}
 			}
+		}
 		}
 		?>
 	</table>
