@@ -23,4 +23,11 @@
                 exit;
             }        
         }
+        public function modificarReto($datos){
+            $resultado=$this->modelo->modificarReto($datos);
+            if($resultado=='ok'){
+                header('location: consulta_retos.php ');
+                exit;
+            }
+    }
     }

@@ -35,8 +35,8 @@
                     return $result;
             }
             catch(Exception $e){
-                $error=$this->conexion->errno;
-                if($error==1062){
+               
+                if( $e->getCode()== '1062'){
                     echo 'El reto ya existe <a href="alta_reto.php"><button>Volver</button></a>';
                 }
             }
@@ -47,5 +47,23 @@
                 return $result;
             
             die();
+        }
+        public function modificarReto($reto){
+           
+            try{
+              
+                $sql= "UPDATE retos SET Nombre='".$reto['Nombre']."', Descripcion='".$reto['descripcion']."', Publicado=".$reto['publicado'].", seccion='".$reto['seccion']."', id_categoria=".$reto['categoria'].", fechaInicioInscripcion='".$reto['finicioIns']."', fechaFinInscripcion='".$reto['ffinIns']."', fechaInicioReto='".$reto['inicioreto']."', fechaFinReto='".$reto['finreto']."'  WHERE idReto=".$reto['idReto'].";";
+               $result= $this->conexion->query($sql);
+               echo $sql;
+                return $result;
+            }
+            catch(Exception $e){
+                if( $e->getCode()== '1062'){
+                echo 'Ya hay un reto con ese nombre
+                <a href="formmod_reto.php?id='.$reto['idReto'].'"><button>Volver</button></a>
+                <a href="consulta_retos.php"><button>consultar</button></a>';
+                }
+            }
+            
         }
     }

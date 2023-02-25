@@ -14,3 +14,6 @@ table,td,tr{
 	border-collapse:collapse;
 	background-color:pink;
 }
+input#ocultar{
+	display: none;
+}
