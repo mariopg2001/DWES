@@ -21,6 +21,8 @@
     <a href="./vistas/consulta.php"><button>Consultar Categoria</button></a>
     <a href="./retos/consulta_retos.php"><button>Consultar Reto</button></a>
     <a href="./vistas/Fsesion.php"><button>Cerrar la sesion</button></a>
+    <a href="./vistas/pdf2.php"><button>Crear PDF Categorias </button></a>
+    <a href="./vistas/pdf1.php"><button>Crear PDF Retos </button></a>
 </body>
 <?php 
     }
