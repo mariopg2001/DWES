@@ -2,6 +2,7 @@
      require_once "../configuracion/config.php";
     
     class ModeloReto{
+        private $conexion;
      
         public function __construct(){
             $this->conexion=$this->conectar();
@@ -14,7 +15,7 @@
             return $conexion;
         }
         public function consultaReto(){
-            $sql="SELECT * FROM retos";
+            $sql="SELECT * FROM Retos";
             $result = $this->conexion->query($sql);
             return $result;
         }
@@ -28,7 +29,7 @@
                 else{
                     $descripcion="'$descripcion'";
                 }
-                $sql= "INSERT INTO retos(Nombre, Descripcion, fechaInicioInscripcion, fechaFinInscripcion, fechaInicioReto, fechaFinReto, Publicado, id_profesor, id_categoria ,seccion) 
+                $sql= "INSERT INTO Retos(Nombre, Descripcion, fechaInicioInscripcion, fechaFinInscripcion, fechaInicioReto, fechaFinReto, Publicado, id_profesor, id_categoria ,seccion) 
                 VALUES ('".$reto['nombre']."', ".$descripcion.", '".$reto['finicioIns']."','".$reto['ffinIns']."','".$reto['inicioreto']."','".$reto['finreto']."',".$reto['publicado'].",2,  ".$reto['cat'].", '".$reto['dirigido']."');";
                     $result = $this->conexion->query($sql);
                    
@@ -42,17 +43,17 @@
             }
         }
         public function borrar($id){
-                $sql = "DELETE FROM retos WHERE idReto=".$id.";";
+                $sql = "DELETE FROM Retos WHERE idReto=".$id.";";
                 $result = $this->conexion->query($sql);
                 return $result;
             
-            die();
+           
         }
         public function modificarReto($reto){
            
             try{
               
-                $sql= "UPDATE retos SET Nombre='".$reto['Nombre']."', Descripcion='".$reto['descripcion']."', Publicado=".$reto['publicado'].", seccion='".$reto['seccion']."', id_categoria=".$reto['categoria'].", fechaInicioInscripcion='".$reto['finicioIns']."', fechaFinInscripcion='".$reto['ffinIns']."', fechaInicioReto='".$reto['inicioreto']."', fechaFinReto='".$reto['finreto']."'  WHERE idReto=".$reto['idReto'].";";
+                $sql= "UPDATE Retos SET Nombre='".$reto['Nombre']."', Descripcion='".$reto['descripcion']."', Publicado=".$reto['publicado'].", seccion='".$reto['seccion']."', id_categoria=".$reto['categoria'].", fechaInicioInscripcion='".$reto['finicioIns']."', fechaFinInscripcion='".$reto['ffinIns']."', fechaInicioReto='".$reto['inicioreto']."', fechaFinReto='".$reto['finreto']."'  WHERE idReto=".$reto['idReto'].";";
                $result= $this->conexion->query($sql);
                echo $sql;
                 return $result;

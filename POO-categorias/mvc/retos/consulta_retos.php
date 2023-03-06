@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION['idprofesor'])) {
+        header('Location: ../index.php');
+    }
+?>
 <html>
 	<head>
 		<meta charset=utf-8 />
@@ -6,8 +12,10 @@
 	</head>
 	<body>
         <button><a href="alta_retos.php">Añadir retos</a></button>
-        <button><a href="formularioalta.php">Añadir categoria</a></button>
-		<button><a href="consulta.php">Consulta las categorias</a></button>
+        <button><a href="../vistas/formularioalta.php">Añadir categoria</a></button>
+		<button><a href="../vistas/consulta.php">Consulta las categorias</a></button>
+        <button><a href="../index.php">Inicio</a></button>
+
 
         <?php
 		 if(isset($_GET['nombre']) && isset($_GET['id'])){

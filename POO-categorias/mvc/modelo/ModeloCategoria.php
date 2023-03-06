@@ -2,7 +2,7 @@
      require_once "../configuracion/config.php";
     
     class ModeloCategoria{
-     
+     private $conexion;
         public function __construct(){
             $this->conexion=$this->conectar();
         }
@@ -24,7 +24,7 @@
         }
         public function alta($nombre){
             try{
-                $sql = "INSERT INTO categorias(Nombre) VALUES('".$nombre."');";
+                $sql = "INSERT INTO Categorias(Nombre) VALUES('".$nombre."');";
                 $result = $this->conexion->query($sql);
                 return $result;
             }catch(Exception $e){
@@ -41,7 +41,7 @@
 
         public function borrar($id){
             try{
-                $sql = "DELETE FROM categorias WHERE idcategoria=".$id.";";
+                $sql = "DELETE FROM Categorias WHERE idcategoria=".$id.";";
                 $result = $this->conexion->query($sql);
                 return $result;
             }catch(Exception $e){
@@ -55,7 +55,7 @@
             die();
         }
         public function Nombre_mod($id){
-            $sql = "SELECT Nombre from categorias WHERE idcategoria=$id;";
+            $sql = "SELECT Nombre from Categorias WHERE idcategoria=$id;";
             $result = $this->conexion->query($sql);
 
             return $result;
@@ -66,7 +66,7 @@
                 $fila = $categoria;
                 foreach($fila as $id => $nombre){
                     try{
-                        $sql = 'UPDATE categorias 
+                        $sql = 'UPDATE Categorias 
                         SET Nombre= "'.$nombre.'"
                         WHERE idcategoria = '.$id.';';
                         $result = $this->conexion->query($sql);
